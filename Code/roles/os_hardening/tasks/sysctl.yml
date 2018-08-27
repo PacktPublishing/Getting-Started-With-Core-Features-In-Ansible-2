@@ -1,0 +1,28 @@
+---
+- name: protect sysctl.conf
+  file: path='/etc/sysctl.conf' owner=root group=root mode=0440
+
+- name: NSA 2.2.4.1 Set Daemon umask, do config for rhel-family
+  template: src='rhel_sysconfig_init.j2' dest='/etc/sysconfig/init' owner=root group=root mode=0544
+#  when: ansible_distribution == 'RedHat' or ansible_distribution == 'Fedora' or ansible_distribution == 'CentOS'
+
+- name: Change various sysctl-settings, look at the sysctl-vars file for documentation
+  sysctl:
+    name: '{{ item.key }}'
+    value: '{{ item.value }}'
+    sysctl_set: yes
+    state: present
+    reload: yes
+    ignoreerrors: yes
+  with_dict: '{{ sysctl_config }}'
+
+- name: Change various sysctl-settings on rhel-hosts, look at the sysctl-vars file for documentation
+  sysctl:
+    name: '{{ item.key }}'
+    value: '{{ item.value }}'
+    state: present
+    reload: yes
+    ignoreerrors: yes
+  with_dict: '{{ sysctl_rhel_config }}'
+#  when: ansible_distribution == 'RedHat' or ansible_distribution == 'Fedora' or ansible_distribution == 'CentOS'
+

@@ -1,0 +1,18 @@
+---
+- hosts: 127.0.0.1
+  gather_facts: no
+  vars_files:
+    - group_vars/packt
+  roles:
+    - aws_create_instance
+
+- name: Setup nginx web server
+  hosts: test-instance-ip
+  become: yes
+  gather_facts: false
+  max_fail_percentage: 0
+  any_errors_fatal: false
+  ignore_errors: yes
+  remote_user: centos
+  roles:
+    - nginx

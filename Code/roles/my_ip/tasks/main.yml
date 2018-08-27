@@ -1,0 +1,5 @@
+---
+- name: Get my public IP address
+  ipify_facts:
+
+  register: my_ip

@@ -1,0 +1,9 @@
+---
+- name: Copy my script for the cron
+  cp:
+    src: files/script.py 
+    dest: /home/centos/script.py
+
+
+- name: enable cron
+  cron 

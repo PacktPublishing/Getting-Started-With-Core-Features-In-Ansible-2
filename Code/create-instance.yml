@@ -1,0 +1,103 @@
+---
+- hosts: 127.0.0.1
+  gather_facts: no
+  vars_files:
+    - group_vars/packt
+  tasks:
+    - ec2:
+        instance_type: "{{ aws_instance_type }}"
+        image: "{{ aws_ami_id }}"
+        wait: yes
+        count: 1
+        group: "test-server"
+        vpc_subnet_id: "{{ aws_subnet_id }}"
+        assign_public_ip: yes
+        region: "{{ aws_region_name }}"
+        instance_tags: {"Name":"testing-server"}
+        key_name: "{{ key_name }}"
+      register: ec2_instance_details
+    - name: check Instance
+      ec2_remote_facts:
+        region: "{{ aws_region_name }}"
+        filters:
+          instance-state-name: running
+          "tag:Name": "testing-server"
+      register: instance_out
+
+    - name: Get the Public_ip
+      ec2_remote_facts:
+        region: "{{ aws_region_name }}"
+        filters:
+          ip-address : "{{ instance_out.instances[0].public_ip_address }}"
+      register: instance_ip
+
+    - name: Debug ip address
+      debug:
+        var: instance_ip
+
+    - name: add IP hosts group
+      add_host:
+        name: "{{ item }}"
+        groupname: test-instance-ip
+      with_items: "{{ instance_ip.instances[0].public_ip_address }}"
+
+    - name: Wait for target instance to be up
+      wait_for:
+        host: "{{ instance_ip.instances[0].public_ip_address }}"
+        port: 22
+        state: started
+        timeout: 600
+        delay: 60
+
+- name: Setup nginx web server
+  hosts: test-instance-ip
+  become: yes
+  gather_facts: false
+  max_fail_percentage: 0
+  any_errors_fatal: false
+  ignore_errors: yes
+  remote_user: centos
+  tasks:
+    - name: install rsync
+      yum:
+        name: rsync
+        state: present
+    - name: install nginx
+      yum:
+        name: nginx
+        state: present
+
+    - name: create a directory if it doesn't exist
+      file:
+        path: "/usr/share/nginx/html/packt"
+        state: directory
+
+    - name: copy nginx.conf onto the server
+      copy:
+        src: files/nginx.conf
+        dest: /etc/nginx/nginx.conf
+
+    - name: copy nginx vhost conf file onto server
+      copy:
+        src: files/packt-nginx.conf
+        dest: /etc/nginx/conf.d/packt.conf
+        owner: nginx
+        group: nginx
+
+    - name: copy 40x.html onto the server
+      copy:
+        src: files/40x.html
+        dest: /usr/share/nginx/html/packt/40x.html
+
+    - name: copy 50x.html onto the server
+      copy:
+        src: files/50x.html
+        dest: /usr/share/nginx/html/packt/50x.html
+
+    - name:  nginx restart
+      service:
+        name: nginx
+        state: restarted
+        enabled: yes
+
+

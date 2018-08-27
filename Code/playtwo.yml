@@ -1,0 +1,12 @@
+---
+- hosts: test-server  #This is my host server
+  become: yes
+  vars_files:
+    - group_vars/packt
+  vars:
+    application: nginx
+  tasks:
+    - name: copy ab.txt on hosts
+      copy:
+        src: files/ab.txt
+        dest: /home/centos/ab.txt

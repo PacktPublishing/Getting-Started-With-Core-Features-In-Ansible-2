@@ -1,0 +1,36 @@
+---
+- include: limits.yml
+  tags: limits
+
+- include: login_defs.yml
+  tags: login_defs
+
+- include: minimize_access.yml
+  tags: minimize_acces
+
+- include: pam.yml
+  tags: pam
+
+- include: profile.yml
+  tags: profile
+
+- include: securetty.yml
+  tags: securetty
+
+- include: nozeroconf.yml
+  tags: network
+
+- include: suid_sgid.yml
+  when: os_security_suid_sgid_enforce
+  tags: suid_sgid
+
+- include: sysctl.yml
+  tags: sysctl
+
+- include: rhosts.yml
+  tags: rhosts
+
+- include: yum.yml
+  tags: yum
+
+- include: sshd_config.yml

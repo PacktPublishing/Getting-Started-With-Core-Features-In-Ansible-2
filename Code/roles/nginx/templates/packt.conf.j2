@@ -1,0 +1,23 @@
+server 
+{
+        listen       80;
+        listen       [::]:80;
+
+        root         "/usr/share/nginx/html/";
+
+        access_log  /var/log/nginx/access.log main;
+        error_log  /var/log/nginx/error.log debug;
+
+        # Load configuration files for the default server block.
+        include /etc/nginx/default.d/*.conf;
+
+        # redirect server error pages to the static page /40x.html
+        error_page 404 /40x.html;
+            location = /40x.html {
+        }
+
+        # redirect server error pages to the static page /50x.html
+        error_page 500 502 503 504 /50x.html;
+            location = /50x.html {
+        }
+}

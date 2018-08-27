@@ -1,0 +1,13 @@
+---
+# Using a two-pass approach for checking directories in order to support symlinks.
+- name: find directories for minimizing access
+  stat:
+    path: "{{ item }}"
+  register: minimize_access_directories
+  with_items:
+    - '/usr/local/sbin'
+    - '/usr/local/bin'
+    - '/usr/sbin'
+    - '/usr/bin'
+    - '/sbin'
+    - '/bin'

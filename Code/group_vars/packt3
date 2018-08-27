@@ -1,0 +1,4 @@
+# -*- mode: yaml -*-
+---
+aws_region_name: 'eu-west-1'
+aws_owner_id: 'xxxxxxxxxx'

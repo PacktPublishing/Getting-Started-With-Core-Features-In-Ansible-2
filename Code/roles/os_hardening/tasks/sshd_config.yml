@@ -1,0 +1,20 @@
+---
+- name: Enabling protocol 2 for ssh
+  replace: dest='/etc/ssh/sshd_config' regexp='^\s*#Protocol 2' replace='Protocol 2'
+  register: checksshdconf
+
+- name: enabling ClientAliveInterval to kill idle ssh connections automatically
+  replace: dest='/etc/ssh/sshd_config' regexp='^\s*#ClientAliveInterval 0' replace='ClientAliveInterval 240'
+
+- name: enabling ClientAliveCountMax to kill idle ssh connections automatically
+  replace: dest='/etc/ssh/sshd_config' regexp='^\s*#ClientAliveCountMax 3' replace='ClientAliveCountMax 0'
+
+
+- name: Checking ssh port in semanage
+  shell: semanage port -l | grep ssh
+
+- name: Restart sshd service
+  service:
+    name: sshd
+    state: restarted
+

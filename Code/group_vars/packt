@@ -1,0 +1,13 @@
+# -*- mode: yaml -*-
+---
+aws_region_name: 'eu-west-1'
+aws_vpc_az_1: 'eu-west-1a'
+aws_vpc_az_2: 'eu-west-1b'
+aws_vpc_az_3: 'eu-west-1c'
+aws_vpc_cidr_block: 10.0.0.0/16
+aws_ami_id: 'ami-xxxxxx'
+aws_instance_type: "t2.small"
+aws_subnet_id: "subnet-855b61e0"
+aws_security_group_name: "test-server"
+key_name: "test1-key"
+

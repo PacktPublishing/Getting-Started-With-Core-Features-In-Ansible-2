@@ -1,0 +1,9 @@
+---
+- hosts: 127.0.0.1  #This is my host server
+  vars_files:
+    - group_vars/packt
+  tasks:
+    - name: copy ab.txt on hosts
+      copy:
+        src: files/ab.txt
+        dest: /home/ladmin/Desktop/packtcode

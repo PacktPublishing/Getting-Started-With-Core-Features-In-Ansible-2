@@ -1,0 +1,36 @@
+---
+- hosts: 127.0.0.1
+  gather_facts: no
+  vars_files:
+    - group_vars/packt
+  tasks:
+    - name: check Instance
+      ec2_remote_facts:
+        region: "{{ aws_region_name }}"
+        filters:
+          instance-state-name: running
+          "tag:Name": "testing-server"
+      register: instance_out
+
+    - name: Get the Public_ip
+      ec2_remote_facts:
+        region: "{{ aws_region_name }}"
+        filters:
+          ip-address : "{{ instance_out.instances[0].public_ip_address }}"
+      register: instance_ip
+
+    - name: Debug ip address
+      debug:
+        var: instance_ip
+
+    - name: add IP hosts group
+      add_host:
+        name: "{{ item }}"
+        groupname: test-instance-ip
+      with_items: "{{ instance_ip.instances[0].public_ip_address }}"
+
+    - name: Terminate instances that were previously launched
+      ec2:
+        region: "{{ aws_region_name }}"
+        state: 'absent'
+        instance_ids: '{{ instance_out.instances[0].id }}'

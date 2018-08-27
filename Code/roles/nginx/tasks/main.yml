@@ -1,0 +1,8 @@
+---
+- name: install rsync
+  yum:
+    name: rsync
+    state: present
+
+- include: nginx.yml
+

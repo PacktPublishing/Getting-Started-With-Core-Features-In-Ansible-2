@@ -1,0 +1,42 @@
+---
+- name: install nginx
+  yum:
+    name: nginx
+    state: present
+
+- name: copy nginx.conf onto the server
+  copy:
+    src: files/nginx.conf
+    dest: /etc/nginx/nginx.conf
+
+- name: create a directory if it doesn't exist
+  file:
+    path: "/usr/share/nginx/html/packt"
+    state: directory
+
+- name: copy nginx vhost conf file onto server
+  template:
+    src: "templates/packt.conf.j2"
+    dest: "/etc/nginx/conf.d/packt.conf"
+    owner: nginx
+    group: nginx
+
+- name: copy 40x.html onto the server
+  copy:
+    src: files/40x.html
+    dest: /usr/share/nginx/html/packt/40x.html
+
+- name: copy 50x.html onto the server
+  copy:
+    src: files/50x.html
+    dest: /usr/share/nginx/html/packt/50x.html
+  notify:     #####To call handlers/main.yml
+    - restart nginx
+
+- name:  nginx restart
+  service:
+    name: nginx
+    state: restarted
+    enabled: yes
+
+

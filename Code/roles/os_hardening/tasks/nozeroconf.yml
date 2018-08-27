@@ -1,0 +1,9 @@
+---
+- name: Check for NOZEROCONFIG if already correct
+  shell: grep 'NOZEROCONF=yes' /etc/sysconfig/network
+  register: nozeroconfig
+
+- name: Disable Zeroconf Networking
+  command: echo "NOZEROCONF=yes" >> /etc/sysconfig/network
+  when: ( nozeroconfig.rc != 0 )
+

@@ -1,0 +1,9 @@
+---
+- hosts: 127.0.0.1
+  gather_facts: no
+  vars_files:
+    - group_vars/packt2
+  tasks:
+    - name: removing stale snapshots
+      local_action: command utils/delete_stale_snapshots.py --region-name "{{ aws_region_name }}" --owner-id "{{ aws_owner_id }}"
+
