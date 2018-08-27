@@ -16,115 +16,17 @@ Jump into learning the key new features in Ansible 2. This course gives you an i
 
 ## Instructions and Navigation
 ### Assumed Knowledge
-To fully benefit from the coverage included in this course, you will need:<br/>
 This course is for system admins, system engineers, DevOps engineers, and developers who want to use Ansible to automate everything: from software-defined infrastructures to application deployments. A basic knowledge of Ansible, ad-hoc commands, playbooks, and roles are recommended but not essential.
 ### Technical Requirements
 This course has the following software requirements:<br/>
-Minimum Hardware Requirements
+<b>Minimum Hardware Requirements</b><br>
 For successful completion of this course, students will require the computer systems with at least the following:
-
-
-OS: Ubuntu 14
-
-
-
-Processor: Intel(R) Core(TM) i5-5200U CPU @ 2.20GHz
-
-
-
-Memory: 15GB
-
-
-
-Storage: 200GB
-
-
-Recommended Hardware Requirements
+<ul><li>OS: Ubuntu 14</li><li>Processor: Intel(R) Core(TM) i5-5200U CPU @ 2.20GHz</li><li>Memory: 15GB</li><li>Storage: 200GB</li></ul><br>
+<b>Recommended Hardware Requirements</b><br>
 For an optimal experience with hands-on labs and other practical activities, we recommend the following configuration:
-
-
-OS: Ubuntu 16.04.3 LTS
-
-
-
-Processor: Intel(R) Core(TM) i5-5200U CPU @ 2.20GHz
-
-
-
-Memory: 30GB
-
-
-
-Storage: 400GB
-
-
-Software Requirements
-
-Operating system: Ubuntu
-
-
-
-Python (2.7)
-
-
-
-pip (9.0.1)
-
-
-
-Virtualenv (15.0.1)
-
-
-
-ansible (2.2)
-
-
-
-boto (2.42)
-
-
-
-boto3 (1.3.1)
-
-
-
-botocore (1.4.39)
-
-
-
-PyYAML (3.12)
-
-
-
-pycparser (2.17)
-
-
-
-pycrypto (2.6.1)
-
-
-
-pyparsing (2.2.0)
-
-
-
-python-dateutil (2.5.3)
-
-
-
-PyYAML (3.12)
-
-
-
-requests (2.18.4)
-
-
-
-setuptools (36.5.0)
-
-
-
-AWS Account for infrastructure automation concep
+<ul><li>OS: Ubuntu 16.04.3 LTS</li><li>Processor: Intel(R) Core(TM) i5-5200U CPU @ 2.20GHz</li><li>Memory: 30GB</li><li>Storage: 400GB</li><ul>
+<b>Software Requirements</b>
+<ul><li>Operating system: Ubuntu</li><li>Python (2.7)</li><li>pip (9.0.1)</li><li>Virtualenv (15.0.1)</li><li>ansible (2.2)</li><li>boto (2.42)</li><li>boto3 (1.3.1)</li><li>botocore (1.4.39)</li><li>PyYAML (3.12)</li><li>pycparser (2.17)</li><li>pycrypto (2.6.1)</li><li>pyparsing (2.2.0)</li><li>python-dateutil (2.5.3)</li><li>PyYAML (3.12)</li><li>requests (2.18.4)</li><li>setuptools (36.5.0)</li><li>AWS Account for infrastructure automation concep</li></ul>
 
 ## Related Products
 * [Hands-On DevOps with Ansible [Video]](https://www.packtpub.com/virtualization-and-cloud/hands-devops-ansible-video?utm_source=github&utm_medium=repository&utm_campaign=9781789344622)
