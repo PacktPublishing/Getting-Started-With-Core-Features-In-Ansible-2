@@ -18,7 +18,7 @@ Jump into learning the key new features in Ansible 2. This course gives you an i
 ### Assumed Knowledge
 This course is for system admins, system engineers, DevOps engineers, and developers who want to use Ansible to automate everything: from software-defined infrastructures to application deployments. A basic knowledge of Ansible, ad-hoc commands, playbooks, and roles are recommended but not essential.
 ### Technical Requirements
-This course has the following software requirements:<br/>
+This course has the following hardware and software requirements:<br/>
 <b>Minimum Hardware Requirements</b><br>
 For successful completion of this course, students will require the computer systems with at least the following:
 <ul><li>OS: Ubuntu 14</li><li>Processor: Intel(R) Core(TM) i5-5200U CPU @ 2.20GHz</li><li>Memory: 15GB</li><li>Storage: 200GB</li></ul><br>
