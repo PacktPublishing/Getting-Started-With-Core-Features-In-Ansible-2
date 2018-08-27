@@ -24,9 +24,9 @@ For successful completion of this course, students will require the computer sys
 <ul><li>OS: Ubuntu 14</li><li>Processor: Intel(R) Core(TM) i5-5200U CPU @ 2.20GHz</li><li>Memory: 15GB</li><li>Storage: 200GB</li></ul><br>
 <b>Recommended Hardware Requirements</b><br>
 For an optimal experience with hands-on labs and other practical activities, we recommend the following configuration:
-<ul><li>OS: Ubuntu 16.04.3 LTS</li><li>Processor: Intel(R) Core(TM) i5-5200U CPU @ 2.20GHz</li><li>Memory: 30GB</li><li>Storage: 400GB</li><ul><br>
+<ul><li>OS: Ubuntu 16.04.3 LTS</li><li>Processor: Intel(R) Core(TM) i5-5200U CPU @ 2.20GHz</li><li>Memory: 30GB</li><li>Storage: 400GB</li><ul><br/>
 <b>Software Requirements</b>
-<ul><li>Operating system: Ubuntu</li><li>Python (2.7)</li><li>pip (9.0.1)</li><li>Virtualenv (15.0.1)</li><li>ansible (2.2)</li><li>boto (2.42)</li><li>boto3 (1.3.1)</li><li>botocore (1.4.39)</li><li>PyYAML (3.12)</li><li>pycparser (2.17)</li><li>pycrypto (2.6.1)</li><li>pyparsing (2.2.0)</li><li>python-dateutil (2.5.3)</li><li>PyYAML (3.12)</li><li>requests (2.18.4)</li><li>setuptools (36.5.0)</li><li>AWS Account for infrastructure automation concep</li></ul>
+<ul>Operating system: Ubuntu<li>Python (2.7)</li><li>pip (9.0.1)</li><li>Virtualenv (15.0.1)</li><li>ansible (2.2)</li><li>boto (2.42)</li><li>boto3 (1.3.1)</li><li>botocore (1.4.39)</li><li>PyYAML (3.12)</li><li>pycparser (2.17)</li><li>pycrypto (2.6.1)</li><li>pyparsing (2.2.0)</li><li>python-dateutil (2.5.3)</li><li>PyYAML (3.12)</li><li>requests (2.18.4)</li><li>setuptools (36.5.0)</li><li>AWS Account for infrastructure automation concep</li></ul>
 
 ## Related Products
 * [Hands-On DevOps with Ansible [Video]](https://www.packtpub.com/virtualization-and-cloud/hands-devops-ansible-video?utm_source=github&utm_medium=repository&utm_campaign=9781789344622)
